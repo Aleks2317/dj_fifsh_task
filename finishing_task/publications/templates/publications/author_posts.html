@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ author.name }}'s Posts{% endblock %}
+
+{% block content %}
+    <h2>Статьи автора: {{ author.name }}</h2>
+        <table>
+        {% for post in posts %}
+            <tr>
+<!--                создание гиппер ссылки т.е. после клика на которую будет вызвано представление в
+                    данном случае post_full после чего перейдем на страницу post_full.html:-->
+<!--                тег url принимает имя (author_posts) из маршрута -->
+<!--                path('post/<int:post_id>/', post_full, name='post_full'),-->
+<!--                в файле (urls.py)-->
+                {% if post.flag_publicaton == 1 %}
+                    <td><a href="{% url 'post_full' post.id %}">{{ post.title }}</a></td>
+<!--                вызываем функцию get_summary из класса Post из models.py-->
+                    <td>{{ post.get_summary }}</td>
+                {% else %}
+                    <td>{{ post.title }}{{ '    ' }}</td>
+<!--                вызываем функцию get_summary из класса Post из models.py-->
+                    <td>{{ post.get_summary }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ posts.author.name }}
+{{ posts.title }}
+{% endblock %}
+
+{% block content %}
+{{ post.counter_of_views }}
+    <h2>Статьи автора: {{ posts.author.fullname }}</h2>
+            <h3>{{ posts.title }}</h3>
+            <p> {{ posts.content }}</p>
+            <p> {{ " Дата публикации    "}}{{ posts.data_publication }} </p>
+            <p> {{ " Автор     "}}{{ posts.author.name }} </p>
+            <p> {{ " Категория статьи     "}}{{ posts.category }} </p>
+            <p> {{ " Количество просмотров    "}}{{ posts.count_of_views }} </p>
+
+
+        {% for com in comment %}
+            <p> {{ " com.author     "}}{{ com.author.name }} </p>
+            <p> {{ " com.post     "}}{{ com.post.id }} </p>
+            <p> {{ " com.comment     "}}{{ com.comment }} </p>
+            <p> {{ " com.data_comment    "}}{{ com.data_comment }} </p>
+            <p> {{ " com.data_comment_remuve     "}}{{ com.data_comment_remuve }} </p>
+        {% endfor %}
+
+{% endblock %}

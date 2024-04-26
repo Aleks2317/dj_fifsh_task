@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}'HOME'{% endblock %}
+
+{% block content %}
+<div>
+    <h2>HOME</h2>
+    <a href="{% url 'about_me' %}"><h3>About_me</h3></a>
+    <a href="{% url 'games' %}"><h3>Games</h3></a></li>
+    <a href="{% url 'publications' %}"><h3>Publications</h3></a>
+    <a href="{% url 'shop' %}"><h3>Shop</h3></a>
+</div>
+{% endblock %}
+
+

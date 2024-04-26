@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>{% block title %}Сайт{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body class="text-center">
+<img class="w-50 mx-auto d-block" src="{% static 'img/im1_cat.jpg' %}" alt="photo">
+  <div>
+
+        {% block content %}
+            <p>Скоро тут появится текст...</p>
+        {% endblock %}
+
+  </div>
+</body>
+<footer class="text-center">
+<p>&copy; 2024 Мой сайт. Все права защищены.</p>
+</footer>
+</html>

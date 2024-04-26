@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'games' %}"><h3>Играть!</h3></a>
+    <h2>{{ name_game }}</h2>
+        {% for game, res in resultat %}
+            <li>{{ 'Game ' }}{{ game }}{{ ' **result** ' }}{{ res }}</li>
+        {% endfor %}
+
+{% endblock %}
+

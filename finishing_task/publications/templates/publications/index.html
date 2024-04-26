@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Статьи{% endblock %}
+
+{% block content %}
+<li><a href="{% url 'author_form' %}"><h4>Создать нового автора</h4></a></li>
+<li><a href="{% url 'post_form' %}"><h4>Создать новый пост</h4></a></li>
+<li>
+    <form action="" method="post">
+        {% csrf_token %}
+            {{ form.as_div }}
+            <h3><input type="submit" value="Выбрать"></h3>
+    </form>
+<li>
+{% endblock %}
